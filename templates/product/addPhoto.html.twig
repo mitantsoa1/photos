@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductPhotoController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="">
+		<div class="flex justify-center pt-2">
+
+			<div class="w-1/4"></div>
+			<div class="bg-white shadow-md rounded px-20 pt-6 pb-8 mb-4 w-2/5">
+
+				<h1 class="h3 mb-3 font-weight-normal text-center">Add photos to
+					<strong>{{product.name}}</strong>
+				</h1>
+
+				{{ form_errors(formAddPhotos) }}
+
+
+				{{ form_start(formAddPhotos) }}
+				<div class="mb-4">
+					{{ form_row(formAddPhotos.filename) }}
+
+				</div>
+				<div class="mb-4">
+					{{ form_row(formAddPhotos.caption) }}
+
+				</div>
+
+				<div class="text-center">
+					{{ form_row(formAddPhotos.Submit) }}
+
+				</div>
+
+
+				{{ form_end(formAddPhotos) }}
+			</div>
+
+			<div class="class= w-1/4"></div>
+		</div>
+	</div>
+
+{% endblock %}

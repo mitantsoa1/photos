@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!
+{% endblock %}
+
+{% block body %}
+	<div class="container w-full justify-center">
+		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+			<a href="{{path('add_product_photo',{'id':product.id})}}">Add photo</a>
+
+		</button>
+
+
+		<div class="overflow-x-auto bg-white dark:bg-neutral-700 w-full">
+			<h4>{{product.name}}</h4>
+			<strong>{{product.price}}</strong>
+			<div class="photos"></div>
+		</div>
+	</div>
+
+	<script></script>
+
+{% endblock %}
