@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	{# {{ dump(registrationForm) }} #}
+
+	<div class="">
+		<div class="flex justify-center pt-2">
+
+			<div class="w-1/4"></div>
+			<div class="bg-white shadow-md rounded px-20 pt-6 pb-8 mb-4 w-2/5">
+
+				<h1 class="h3 mb-3 font-weight-normal text-center">Register</h1>
+				{{ form_errors(registrationForm) }}
+
+
+				{{ form_start(registrationForm) }}
+				<div class="mb-4">
+					{{ form_row(registrationForm.fullname) }}
+				</div>
+				<div class="mb-4">
+					{{ form_row(registrationForm.email) }}
+				</div>
+				<div class="mb-4">
+					{{ form_row(registrationForm.plainPassword) }}
+				</div>
+
+				<div class="md:flex md:items-center mb-4 ">
+					{{ form_row(registrationForm.agreeTerms) }}
+
+					<label class="md:w-2/3 block text-sm text-right">
+
+						<a href="{{path('app_login')}}" class=" text-purple-400 hover:text-purple-800 hover:underline">Already have account?</a>
+
+
+					</label>
+				</div>
+
+				<div class="text-center">
+					{{ form_row(registrationForm.Register) }}
+				</div>
+
+
+				{{ form_end(registrationForm) }}
+			</div>
+
+			<div class="class= w-1/4"></div>
+		</div>
+	</div>
+
+{% endblock %}
