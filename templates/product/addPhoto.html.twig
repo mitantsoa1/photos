@@ -9,27 +9,43 @@
 		<div class="flex justify-center pt-2">
 
 			<div class="w-1/4"></div>
-			<div class="bg-white shadow-md rounded px-20 pt-6 pb-8 mb-4 w-2/5">
+			<div class="w-2/5 px-20 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
 
-				<h1 class="h3 mb-3 font-weight-normal text-center">Add photos to
+				<h1 class="mb-3 text-center h3 font-weight-normal">Add photos to
 					<strong>{{product.name}}</strong>
 				</h1>
 
 				{{ form_errors(formAddPhotos) }}
 
 
+				<pre>
+{{ dump(edit_mode) }}
+
+				</pre>
 				{{ form_start(formAddPhotos) }}
 				<div class="mb-4">
 					{{ form_row(formAddPhotos.filename) }}
 
 				</div>
+				{% if edit_mode %}
+					<div class="flex flex-row justify-around align-content-center">
+						<label for="">Current file:</label>
+						<img width="50" height="50" src="{{asset('asset/images/products/' ~ photo.filename)}}" alt="">
+						<input type="text" value="{{photo.filename}}" disabled>
+					</div>
+				{% endif %}
+
 				<div class="mb-4">
 					{{ form_row(formAddPhotos.caption) }}
 
 				</div>
 
-				<div class="text-center">
+				<div class="text-center flex justify-center space-x-4">
 					{{ form_row(formAddPhotos.Submit) }}
+					<button class="w-1/4 shadow bg-blue-400 hover:bg-blue-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+
+						<a href="{{path('product.show',{'id':product.id})}}">Cancel</a>
+					</button>
 
 				</div>
 

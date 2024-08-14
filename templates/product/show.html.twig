@@ -4,20 +4,111 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container w-full justify-center">
-		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
-			<a href="{{path('add_product_photo',{'id':product.id})}}">Add photo</a>
-
-		</button>
+	<div class="container flex justify-center w-4/5">
 
 
-		<div class="overflow-x-auto bg-white dark:bg-neutral-700 w-full">
-			<h4>{{product.name}}</h4>
-			<strong>{{product.price}}</strong>
-			<div class="photos"></div>
+		<div class="mx-auto my-3 ">
+			<div class="flex justify-end">
+				<a class="w-48 px-8 py-1 text-center text-indigo-100 transition duration-300 bg-indigo-600 border-b-4 border-indigo-700 rounded-lg hover:bg-indigo-700 hover:border-indigo-800" href="{{path('add_product_photo',{'idProduct':product.id})}}">Add product</a>
+
+			</div>
+		</div>
+
+		<div
+			class="w-full overflow-x-auto bg-white dark:bg-neutral-700">
+
+			<!-- Table -->
+			<table
+				class="min-w-full text-xs text-left border border-collapse whitespace-nowrap" id="product">
+
+				<!-- Table head -->
+				<thead class="tracking-wider uppercase border-b-2 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800">
+					<tr>
+
+						<th class="px-6 py-3">
+							Name
+
+						</th>
+
+						<th scope="col" class="px-6 py-3 ">
+
+							Price
+
+
+						</th>
+						<th scope="col" class="px-6 py-3 ">
+
+							Stock
+
+
+						</th>
+
+					</tr>
+				</thead>
+
+				<!-- Table body -->
+				<tbody>
+					<tr class="border-b dark:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-600">
+						<th scope="row" class="px-6 py-3">
+							{{product.name}}
+						</th>
+						<td class="px-6 py-3">
+
+							{{product.price}}</td>
+					</tr>
+
+				</tbody>
+			</tbody>
+		</table>
+		<div class="flex flex-wrap items-center justify-center p-1 photos">
+			{% for photo in productPhotos %}
+				<div class="">
+
+					<div class="relative flex-shrink-0 max-w-xs m-6 overflow-hidden rounded-lg shadow-lg ">
+
+						<svg class="absolute bottom-0 left-0 mb-8" viewbox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
+							<rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
+							<rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
+						</svg>
+						<div
+							class="flex justify-end" x-data="{ open: false }">
+							<!-- Icône des trois points -->
+							<span @click="open = true" class="cursor-pointer">
+								<img class="relative z-10 h-5" src="{{ asset('asset/icons/icons-dot.png') }}" alt="Options">
+							</span>
+
+							<!-- Le menu modal -->
+							<div x-show="open" @click.away="open = false" class="absolute right-0 z-50 bg-white border border-gray-300 rounded-md shadow-lg" style="width: 100px;">
+								<a href="{{path('edit_product_photo',{'idProduct': product.id, 'id': photo.id})}}" class="flex items-center w-full pl-2 rounded hover:bg-gray-100">
+
+									<img class="h-5 mr-2" src="{{ asset('asset/icons/modifier.png') }}" alt="Edit">
+									Edit
+								</a>
+								<a href="{{path('delete_product_photo',{'idProduct': product.id, 'id': photo.id})}}" class="flex items-center w-full pl-2 rounded hover:bg-gray-100">
+
+
+									<img class="h-5 mr-2" src="{{ asset('asset/icons/poubelle.png') }}" alt="Delete">
+									Delete
+								</a>
+							</div>
+						</div>
+
+
+						<div class="relative flex items-center justify-center p-5 h-50">
+
+							<div class="absolute bottom-0 left-0 block w-48 h-48 ml-3 -mb-24" style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"></div>
+							<img class="relative h-40 max-w-72" src="{{ asset('asset/images/products/' ~ photo.filename) }}" alt="{{ photo.filename }}">
+						</div>
+						<div class="relative px-6 pb-6 mt-6 text-white">
+							<div class="flex justify-between">
+								<span class="block -mb-1 opacity-75 text-slate-800">{{ photo.caption }}</span>
+								<span class="flex items-center px-3 py-2 text-xs font-bold leading-none text-purple-500 bg-white rounded-full">{{ product.price }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
-
-	<script></script>
-
+	<script src="{{ asset('asset/js/alpine.min.js') }}"></script>
 {% endblock %}

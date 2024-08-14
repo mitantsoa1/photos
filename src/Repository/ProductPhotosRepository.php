@@ -16,20 +16,19 @@ class ProductPhotosRepository extends ServiceEntityRepository
         parent::__construct($registry, ProductPhotos::class);
     }
 
-    //    /**
-    //     * @return ProductPhotos[] Returns an array of ProductPhotos objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('p.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    /**
+     * @return ProductPhotos[] Returns an array of ProductPhotos objects
+     */
+    public function findByProduct($product): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.productId = :val')
+            ->setParameter('val', $product)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     //    public function findOneBySomeField($value): ?ProductPhotos
     //    {

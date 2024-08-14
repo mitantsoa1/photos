@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="">
+		<div class="flex justify-center pt-2">
+
+			<div class="w-1/4"></div>
+			<div class="w-2/5 px-20 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
+
+				<h1 class="mb-3 text-center h3 font-weight-normal">Add product
+				</h1>
+
+				{{ form_errors(formAddProduct) }}
+
+
+				{{ form_start(formAddProduct) }}
+				<div class="mb-4">
+					{{ form_row(formAddProduct.name) }}
+
+				</div>
+				<div class="mb-4">
+					{{ form_row(formAddProduct.price) }}
+
+				</div>
+
+				<div class="text-center">
+					{{ form_row(formAddProduct.Submit) }}
+
+				</div>
+
+
+				{{ form_end(formAddProduct) }}
+			</div>
+
+			<div class="class= w-1/4"></div>
+		</div>
+	</div>
+
+{% endblock %}

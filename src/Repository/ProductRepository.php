@@ -28,6 +28,7 @@ class ProductRepository extends ServiceEntityRepository
         return new Paginator($query);
     }
 
+
     //    /**
     //     * @return Product[] Returns an array of Product objects
     //     */

@@ -4,35 +4,36 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container w-4/5 flex justify-center">
+
+	<div class="container flex justify-center w-4/5">
 
 
-		<div class=" mx-auto my-3">
+		<div class="mx-auto my-3 ">
 			<div class="flex justify-end">
-				<a class="bg-indigo-600 hover:bg-indigo-700 py-1 px-8 rounded-lg text-indigo-100 border-b-4 border-indigo-700 hover:border-indigo-800 transition duration-300 w-48 text-center" href="{{path('product.create')}}">Add product</a>
+				<a class="w-48 px-8 py-1 text-center text-indigo-100 transition duration-300 bg-indigo-600 border-b-4 border-indigo-700 rounded-lg hover:bg-indigo-700 hover:border-indigo-800" href="{{path('product.create')}}">Add product</a>
 			</div>
 		</div>
 
 
 		<div
-			class="overflow-x-auto bg-white dark:bg-neutral-700 w-full">
+			class="w-full overflow-x-auto bg-white dark:bg-neutral-700">
 
 			<!-- Table -->
 			<table
-				class="min-w-full text-left text-xs whitespace-nowrap border-collapse border" id="product">
+				class="min-w-full text-xs text-left border border-collapse whitespace-nowrap" id="product">
 
 				<!-- Table head -->
-				<thead class="uppercase tracking-wider border-b-2 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800">
+				<thead class="tracking-wider uppercase border-b-2 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800">
 					<tr>
 
-						<th class="bg-rose-800 px-6 py-3">
+						<th class="px-6 py-3">
 							Name
 							<svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewbox="0 0 24 24">
 								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
 							</svg>
 						</th>
 
-						<th scope="col" class=" px-6 py-3">
+						<th scope="col" class="px-6 py-3 ">
 
 							Price
 							<svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewbox="0 0 24 24">
@@ -40,7 +41,7 @@
 							</svg>
 
 						</th>
-						<th scope="col" class=" px-6 py-3">
+						<th scope="col" class="px-6 py-3 ">
 
 							Stock
 							<svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewbox="0 0 24 24">
@@ -48,7 +49,7 @@
 							</svg>
 
 						</th>
-						<th scope="col" class=" px-6 py-3">
+						<th scope="col" class="px-6 py-3 ">
 
 							Status
 							<svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewbox="0 0 24 24">

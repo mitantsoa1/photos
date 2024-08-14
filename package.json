@@ -6,7 +6,7 @@
         "autoprefixer": "^10.4.20",
         "core-js": "^3.23.0",
         "postcss": "^8.4.41",
-        "postcss-loader": "^8.1.1",
+        "postcss-loader": "^7.0.0",
         "regenerator-runtime": "^0.13.9",
         "tailwindcss": "^3.4.9",
         "webpack": "^5.74.0",
@@ -20,5 +20,12 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@egoist/tailwindcss-icons": "^1.8.1",
+        "@fortawesome/fontawesome-free": "^6.6.0",
+        "@iconify-json/mdi": "^1.1.68",
+        "@iconify/json": "^2.2.236",
+        "alpinejs": "^3.14.1"
     }
 }
